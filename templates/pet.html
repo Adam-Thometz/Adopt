@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{pet.name}}{% endblock %}
+{% block content %}
+<h2>{{pet.name}} the {{pet.species}}</h2>
+<img src="{{pet.image_url()}}" alt="Picture of {{pet.name}}" height="300" width="450">
+<h3>Age: {{pet.age if pet.age else "unknown"}}</h3>
+<hr>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+        <h3>Edit this pet</h3>
+        <form method="POST">
+          {% include 'form-template.html' %}
+          <button class="btn btn-success btn-lg">Submit</button>
+          <a href="/" class="btn btn-danger btn-lg">Go Back</a>
+        </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
